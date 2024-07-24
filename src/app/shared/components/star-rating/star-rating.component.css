@@ -1,0 +1,20 @@
+.star-container {
+  position: relative;
+  width: 125px; /* Assuming 125px as the full width */
+  height: 24px; /* Adjust height to match star size */
+  overflow: hidden;
+}
+
+.star-wrapper {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.star-wrapper .material-icons {
+  font-size: 24px; /* Adjust the font size to match your design */
+}

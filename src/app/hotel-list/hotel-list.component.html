@@ -1,0 +1,37 @@
+<h2 *ngIf="hotels && hotels.length>0">a list that works and it contains: {{title}} !</h2>
+<button class="btn btn-primary d-flex" (click)="toggleIsNewBadge()">
+  <span class="material-icons">
+    {{ showBadge ? 'visibility_off': 'visibility' }}
+  </span>
+  <span class="ml-2">  {{ showBadge ? ' Hide ' : ' Show ' }} new</span>
+</button>
+<div class="my-2">
+  <div class="row">
+    <div class="col-md-4">
+      <span>Filtre actuel: </span>
+      <div> {{ hotelFilter }} </div>
+    </div>
+    <div class="col-md-8 form-group">
+      <input type="text" class="form-control" [(ngModel)]="hotelFilter">
+
+    </div>
+  </div>
+</div>
+<div class="row row-cols-1 row-cols-md-3">
+  <div class="col mb-4" *ngFor="let hotel of filteredHotels">
+    <div class="card">
+      <img class="card-img-top" [src]="hotel.imageUrl" [alt]="hotel.hotelName" [title]="hotel.hotelName |uppercase">
+
+
+  <div class="card-body">
+    <h5 class="card-title">{{hotel.hotelName | uppercase}}</h5>
+    <p class="card-text">{{hotel.description}}</p>
+    <p class="card-text">{{hotel.price | currency: 'EUR': 'symbol': '1.2-2': 'Fr'}}</p>
+    <span class="badge-pill badge-info" *ngIf="showBadge"> New</span>
+    <app-star-rating [rating]="hotel.rating"></app-star-rating>
+
+  </div>
+</div>
+</div>
+
+<h3>la date daujourd'hui est : {{ getDate() }}</h3>
